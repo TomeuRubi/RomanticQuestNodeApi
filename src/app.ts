@@ -3,8 +3,8 @@ import * as dotevnv from "dotenv"
 import cors from "cors"
 import helmet from "helmet"
 import { userRouter } from "./users/users.routes";
-import { productRouter } from "./product/products.routes";
-
+import { cardRouter } from "./cards/card.routes";
+import { deckRouter } from "./decks/deck.routes";
 dotevnv.config()
 
 if (!process.env.PORT) {
@@ -21,7 +21,8 @@ app.use(cors());
 app.use(helmet());
 
 app.use('/', userRouter);
-app.use('/', productRouter);
+app.use('/', cardRouter);
+app.use('/', deckRouter);
 
 app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);
